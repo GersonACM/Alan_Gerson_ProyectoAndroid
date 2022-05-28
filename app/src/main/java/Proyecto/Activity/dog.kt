@@ -1,59 +1,87 @@
 package Proyecto.Activity
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [dog.newInstance] factory method to
- * create an instance of this fragment.
- */
-class dog : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class dog : Fragment(), SearchView.OnQueryTextListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var adapter: DogAdapter
+    private val DogImages= mutableListOf<String>()
+    lateinit var dogRecycler: RecyclerView
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dog, container, false)
+
+        val vista = inflater.inflate(R.layout.fragment_dog, container, false)
+        vista.findViewById<SearchView>(R.id.svDogs).setOnQueryTextListener(this)
+        dogRecycler=vista.findViewById(R.id.rvDogs)
+        initRecyclerView()
+        return vista
+    }
+    private fun initRecyclerView() {
+        adapter = DogAdapter(DogImages)
+        dogRecycler.layoutManager=LinearLayoutManager(requireContext())
+        dogRecycler.adapter=adapter
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment dog.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            dog().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun getRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl("https://dog.ceo/api/breed/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+    }
+    private fun searchByName(query:String){
+        CoroutineScope(Dispatchers.IO).launch {
+            val call = getRetrofit().create(APIService::class.java).getDogsByBreeds("$query/images")
+            val puppies = call.body()
+            requireActivity().runOnUiThread {
+                if(call.isSuccessful){
+                    val images = puppies?.images ?: emptyList()
+                    DogImages.clear()
+                    DogImages.addAll(images)
+                    adapter.notifyDataSetChanged()
+                }else{
+                    showError()
                 }
             }
+
+
+        }
+
     }
+    private fun showError() {
+        Toast.makeText(requireContext(),"Estamos teniendo  un error", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        if (query != null) {
+            searchByName(query.lowercase(Locale.getDefault()))
+        }
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean{
+        return true
+    }
+
+
 }
