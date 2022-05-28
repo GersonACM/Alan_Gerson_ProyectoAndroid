@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Creditos"
+        android:icon="@drawable/ic_credits"
+        android:id="@+id/menu_principal"
+        />
+    <item android:title="Tablas"
+        android:icon="@drawable/ic_credits"
+        android:id="@+id/tablas_main2"
+        />
+    <item android:title="Adivina"
+        android:icon="@drawable/ic_adivina"
+        android:id="@+id/adivina_main"
+        />
+    <item android:title="RAM"
+        android:icon="@drawable/ic_ram"
+        android:id="@+id/ram_main"
+        />
+    <item android:title="Dogs"
+        android:icon="@drawable/ic_dog"
+        android:id="@+id/dog"
+        />
+</menu>

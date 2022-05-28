@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/menu_principal">
+
+    <fragment
+        android:id="@+id/menu_principal"
+        android:name="Proyecto.Activity.menu_principal"
+        android:label="fragment_menu_principal"
+        tools:layout="@layout/fragment_menu_principal" />
+    <fragment
+        android:id="@+id/adivina_main"
+        android:name="Proyecto.Activity.adivina_main"
+        android:label="fragment_adivina_main"
+        tools:layout="@layout/fragment_adivina_main" >
+        <action
+            android:id="@+id/action_adivina_main_to_adivina_resultado"
+            app:destination="@id/adivina_resultado" />
+    </fragment>
+    <fragment
+        android:id="@+id/tablas_main2"
+        android:name="Proyecto.Activity.tablas_main"
+        android:label="fragment_tablas_main"
+        tools:layout="@layout/fragment_tablas_main" >
+        <action
+            android:id="@+id/action_tablas_main2_to_tablas_pract"
+            app:destination="@id/tablas_pract" />
+    </fragment>
+    <fragment
+        android:id="@+id/ram_main"
+        android:name="Proyecto.Activity.ram_main"
+        android:label="fragment_ram_main"
+        tools:layout="@layout/fragment_ram_main" />
+    <fragment
+        android:id="@+id/dog"
+        android:name="Proyecto.Activity.dog"
+        android:label="fragment_dog"
+        tools:layout="@layout/fragment_dog" />
+    <fragment
+        android:id="@+id/tablas_pract"
+        android:name="Proyecto.Activity.tablas_pract"
+        android:label="fragment_tablas_pract"
+        tools:layout="@layout/fragment_tablas_pract" >
+        <action
+            android:id="@+id/action_tablas_pract_to_tablas_resultado"
+            app:destination="@id/tablas_resultado" />
+    </fragment>
+    <fragment
+        android:id="@+id/tablas_resultado"
+        android:name="Proyecto.Activity.tablas_resultado"
+        android:label="fragment_tablas_resultado"
+        tools:layout="@layout/fragment_tablas_resultado" >
+        <action
+            android:id="@+id/action_tablas_resultado_to_tablas_pract"
+            app:destination="@id/tablas_pract" />
+    </fragment>
+    <fragment
+        android:id="@+id/adivina_resultado"
+        android:name="Proyecto.Activity.adivina_resultado"
+        android:label="fragment_adivina_resultado"
+        tools:layout="@layout/fragment_adivina_resultado" />
+</navigation>
