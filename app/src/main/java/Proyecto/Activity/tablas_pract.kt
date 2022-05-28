@@ -28,45 +28,43 @@ class tablas_pract : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val vista = inflater.inflate(R.layout.fragment_tablas_pract, container, false)
+        fun generaMultiplicacion(){
+            factor1 = Random.nextInt(0,10)
+            factor2 = Random.nextInt(0,10)
+            producto = factor1*factor2
+            tvFactor1.text = "$factor1"
+            tvFactor2.text = "$factor2"
+            Respuesta.text.clear()
+
+        }
+        fun initUI(){
+            tvFactor1 = vista.findViewById(R.id.tvFactor1)
+            tvFactor2 = vista.findViewById(R.id.tvFactor2)
+            Respuesta = vista.findViewById(R.id.Respuest)
+            btnRespuesta = vista.findViewById(R.id.btnResponder)
+
+            generaMultiplicacion()
+
+        }
         initUI()
+
 
         btnRespuesta.setOnClickListener {
             var strRespuesta = Respuesta.text.toString()
             if(strRespuesta.equals("")){
-                Toast.makeText(this, "Respuesta Vacia", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Respuesta Vacia", Toast.LENGTH_SHORT).show()
 
             }else{
                 respuestaCorrecta = producto == strRespuesta.toInt()
                 generaMultiplicacion()
-                val mostrarResultado = Intent(this, ResultadoActivity::class.java)
-                mostrarResultado.putExtra("respuesta",respuestaCorrecta)
-                startActivity(mostrarResultado)
+
 
             }
 
         }
-
-    }
-    fun initUI(){
-        tvFactor1 = findViewById(R.id.tvFactor1)
-        tvFactor2 = findViewById(R.id.tvFactor2)
-        Respuesta = findViewById(R.id.Respuest)
-        btnRespuesta = findViewById(R.id.btnResponder)
-
-        generaMultiplicacion()
-
-    }
-
-    fun generaMultiplicacion(){
-        factor1 = Random.nextInt(0,10)
-        factor2 = Random.nextInt(0,10)
-        producto = factor1*factor2
-        tvFactor1.text = "$factor1"
-        tvFactor2.text = "$factor2"
-        Respuesta.text.clear()
-
-    }
         return vista
+
+
     }
 
 
