@@ -3,15 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Documentos 2/Tareas Cuvalles/Tareas 8vo/Programacion para dispositivos moviles/proyecto/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos 2/Tareas Cuvalles/Tareas 8vo/Programacion para dispositivos moviles/proyecto/app/src/main/res/layout/fragment_menu_principal.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos 2/Tareas Cuvalles/Tareas 8vo/Programacion para dispositivos moviles/proyecto/app/src/main/res/layout/fragment_ram_main.xml" value="0.1" />
-        <entry key="..\:/Documentos 2/Tareas Cuvalles/Tareas 8vo/Programacion para dispositivos moviles/proyecto/app/src/main/res/layout/fragment_ram_personaje.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documentos 2/Tareas Cuvalles/Tareas 8vo/Programacion para dispositivos moviles/proyecto/app/src/main/res/layout/fragment_ram_vista.xml" value="0.1" />
-        <entry key="..\:/Documentos 2/Tareas Cuvalles/Tareas 8vo/Programacion para dispositivos moviles/proyecto/app/src/main/res/layout/fragment_tablas_main.xml" value="0.1" />
-        <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/activity_main.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/drawable-v24/boton.xml" value="0.387" />
+        <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/activity_main.xml" value="0.30861244019138756" />
         <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_menu_principal.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_tablas_main.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_tablas_pract.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_tablas_resultado.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/menu/menu_principal.xml" value="0.38697916666666665" />
       </map>
     </option>

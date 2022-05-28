@@ -10,8 +10,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import kotlin.random.Random
 
+var respuestaCorrecta = false
 
 class tablas_pract : Fragment() {
     lateinit var tvFactor1: TextView
@@ -21,13 +23,14 @@ class tablas_pract : Fragment() {
     var factor1:Int = 0
     var factor2:Int = 0
     var producto:Int = 0
-    var respuestaCorrecta = false
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val vista = inflater.inflate(R.layout.fragment_tablas_pract, container, false)
+
         fun generaMultiplicacion(){
             factor1 = Random.nextInt(0,10)
             factor2 = Random.nextInt(0,10)
@@ -37,6 +40,7 @@ class tablas_pract : Fragment() {
             Respuesta.text.clear()
 
         }
+
         fun initUI(){
             tvFactor1 = vista.findViewById(R.id.tvFactor1)
             tvFactor2 = vista.findViewById(R.id.tvFactor2)
@@ -48,24 +52,26 @@ class tablas_pract : Fragment() {
         }
         initUI()
 
-
         btnRespuesta.setOnClickListener {
             var strRespuesta = Respuesta.text.toString()
             if(strRespuesta.equals("")){
                 Toast.makeText(requireContext(), "Respuesta Vacia", Toast.LENGTH_SHORT).show()
 
             }else{
-                respuestaCorrecta = producto == strRespuesta.toInt()
-                generaMultiplicacion()
-
+                if (producto==strRespuesta.toInt()){
+                    respuestaCorrecta = true
+                    Respuesta.text.clear()
+                }
+                else {
+                    respuestaCorrecta = false
+                }
+                findNavController().navigate(R.id.action_tablas_pract_to_tablas_resultado)
 
             }
 
         }
+
         return vista
-
-
     }
-
 
 }
