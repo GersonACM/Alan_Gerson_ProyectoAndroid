@@ -10,25 +10,19 @@ import androidx.navigation.fragment.findNavController
 
 
 class adivina_main : Fragment() {
-
-
     lateinit var btnIniciar: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-
+        // Inflate the layout for this fragment
         val vista = inflater.inflate(R.layout.fragment_adivina_main, container, false)
-        btnIniciar=vista.findViewById(R.id.btnComenzar)
+        btnIniciar=vista.findViewById(R.id.btnComprobar)
         btnIniciar.setOnClickListener {
             findNavController().navigate(R.id.action_adivina_main_to_adivina_resultado)
         }
-
         return vista
-    }
+        }
 
 }
-
-
