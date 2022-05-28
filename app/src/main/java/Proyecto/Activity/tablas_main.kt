@@ -24,7 +24,7 @@ class tablas_main : Fragment() {
 
         btnPracticar = vista.findViewById(R.id.btnPracticar)
         btnPracticar.setOnClickListener {
-            findNavController().navigate(R.id.tablas_main2)
+            findNavController().navigate(R.id.action_tablas_main2_to_tablas_pract)
         }
         return vista
     }
