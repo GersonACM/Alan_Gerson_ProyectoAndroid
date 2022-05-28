@@ -18,7 +18,7 @@ class adivina_main : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val vista = inflater.inflate(R.layout.fragment_adivina_main, container, false)
-        btnIniciar=vista.findViewById(R.id.btnComprobar)
+        btnIniciar=vista.findViewById(R.id.btnComenzar)
         btnIniciar.setOnClickListener {
             findNavController().navigate(R.id.action_adivina_main_to_adivina_resultado)
         }
