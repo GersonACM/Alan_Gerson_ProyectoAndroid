@@ -5,7 +5,11 @@
       <map>
         <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/drawable-v24/boton.xml" value="0.387" />
         <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/activity_main.xml" value="0.30861244019138756" />
+        <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_adivina_main.xml" value="0.196875" />
+        <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_adivina_resultado.xml" value="0.196875" />
         <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_menu_principal.xml" value="0.38697916666666665" />
+        <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_ram_main.xml" value="0.2962962962962963" />
+        <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_ram_vista.xml" value="0.196875" />
         <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_tablas_main.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_tablas_pract.xml" value="0.38697916666666665" />
         <entry key="..\:/Users/THIEF/AndroidStudioProjects/Alan_Gerson_ProyectoAndroid/app/src/main/res/layout/fragment_tablas_resultado.xml" value="0.38697916666666665" />
