@@ -1,64 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FDFDFD"
-    tools:context=".MainActivity">
+    tools:context=".adivina_resultado">
 
-    <EditText
-        android:id="@+id/etEntradaUsuario"
-        android:layout_width="185dp"
-        android:layout_height="88dp"
-        android:layout_marginTop="248dp"
-        android:ems="10"
-        android:hint="0"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="48sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnComprobar"
-        android:layout_width="195dp"
-        android:layout_height="66dp"
-        android:text="COMPROBAR"
-        android:textSize="20sp"
-        android:textStyle="bold|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEntradaUsuario"
-        app:layout_constraintVertical_bias="0.638" />
-
+    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="270dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="120dp"
-        android:text="ADIVINA EL NUMERO \ DE ENTRE 1 Y 10"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="261dp"
-        android:layout_height="122dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.413"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.696" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

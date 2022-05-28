@@ -1,99 +1,59 @@
 package Proyecto.Activity
 
-import android.media.MediaPlayer
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
-import androidx.navigation.fragment.findNavController
-import kotlin.random.Random
 
+// TODO: Rename parameter arguments, choose names that match
+// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
 
-class adivina_resultado: Fragment() {
-    lateinit var musicaFondo: MediaPlayer
-    lateinit var respuestaUsuario: EditText
-    lateinit var btnRespuesta: Button
-    lateinit var sonidoRespuestaCorrecta: MediaPlayer
-    lateinit var sonidoRespuestaIncorrecta: MediaPlayer
-    var numeroGenerado = 0
-    var numeroUsuario = 0
+/**
+ * A simple [Fragment] subclass.
+ * Use the [adivina_resultado.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class adivina_resultado : Fragment() {
+    // TODO: Rename and change types of parameters
+    private var param1: String? = null
+    private var param2: String? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val vista = inflater.inflate(R.layout.fragment_adivina_main, container, false)
-
-         fun onStop() {
-            super.onStop()
-            musicaFondo.release()
-            sonidoRespuestaCorrecta.release()
-            sonidoRespuestaIncorrecta.release()
-        }
-
-        fun reproduceMusica() {
-            musicaFondo.isLooping = true
-            musicaFondo.setVolume(0.5f, 0.5f)
-            musicaFondo.start() // no need to call prepare(); create() does that for you
-        }
-
-        fun sonidoCorrecto() {
-            sonidoRespuestaCorrecta.start()
-        }
-
-        fun sonidoIncorrecto() {
-            sonidoRespuestaIncorrecta.start()
-        }
-
-        fun initUI() {
-            btnRespuesta = vista.findViewById(R.id.btnComprobar)
-            respuestaUsuario = vista.findViewById(R.id.etEntradaUsuario)
-        }
-
-        fun generaNumero() {
-            numeroGenerado = Random.nextInt(1, 7)
-
-        }
-
-        initUI()
-        musicaFondo = MediaPlayer.create(requireContext(), R.raw.fondo)
-        sonidoRespuestaCorrecta = MediaPlayer.create(requireContext(), R.raw.correcto)
-        sonidoRespuestaIncorrecta = MediaPlayer.create(requireContext(), R.raw.error)
-        reproduceMusica()
-        generaNumero()
-
-        btnRespuesta.setOnClickListener {
-            val respuesta = respuestaUsuario.text.toString()
-            if (respuesta.equals("")) {
-                Toast.makeText(requireContext(), "Ingrese un valor", Toast.LENGTH_LONG).show()
-                sonidoIncorrecto()
-            } else {
-                numeroUsuario = respuesta.toInt()
-                if (numeroGenerado == numeroUsuario) {
-                    sonidoCorrecto()
-                    Toast.makeText(requireContext(), "Advininaste el numero", Toast.LENGTH_SHORT)
-                        .show()
-                } else {
-                    sonidoIncorrecto()
-                    Toast.makeText(
-                        requireContext(),
-                        "El numero era $numeroGenerado ",
-                        Toast.LENGTH_SHORT
-                    ).show()
-
-                }
-                generaNumero()
-                findNavController().navigate(R.id.action_adivina_main_to_adivina_resultado)
-            }
-        }
-        return vista
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_adivina_resultado, container, false)
     }
 
-
+    companion object {
+        /**
+         * Use this factory method to create a new instance of
+         * this fragment using the provided parameters.
+         *
+         * @param param1 Parameter 1.
+         * @param param2 Parameter 2.
+         * @return A new instance of fragment adivina_resultado.
+         */
+        // TODO: Rename and change types and number of parameters
+        @JvmStatic
+        fun newInstance(param1: String, param2: String) =
+            adivina_resultado().apply {
+                arguments = Bundle().apply {
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
+                }
+            }
+    }
 }
-
-
